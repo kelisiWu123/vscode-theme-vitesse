@@ -1,7 +1,7 @@
 import { VitesseThemes, colors } from './colors'
 
 export interface GetThemeOptions {
-  color: 'light' | 'dark'
+  color: 'light' | 'dark' | 'lightColorful'
   name: string
   soft?: boolean
   black?: boolean
@@ -13,7 +13,7 @@ function toArray<T>(arr: T | T[]): T[] {
   return [arr]
 }
 
-function getColors(style: 'light' | 'dark'): typeof colors {
+function getColors(style: 'light' | 'dark' | 'lightColorful'): typeof colors {
   if (style === 'dark') {
     /* The array of light to dark colors are reversed to auto-generate dark theme */
     const darkColors: any = {}
@@ -39,7 +39,7 @@ function capitalize(str: string) {
 }
 
 export function createThemeHelpers({ color, soft = false, black = false }: GetThemeOptions) {
-  const pick = (options: { light?: string, dark?: string }) => options[color]
+  const pick = (options: { light?: string, dark?: string, lightColorful?: string }) => options[color]
 
   const v = (key: keyof typeof VitesseThemes, op = '') => {
     let obj = black
@@ -49,9 +49,9 @@ export function createThemeHelpers({ color, soft = false, black = false }: GetTh
         : VitesseThemes[key]
 
     if (typeof obj === 'string')
-      obj = [obj, obj]
+      obj = [obj, obj, obj]
 
-    return pick({ light: obj[1] + op, dark: obj[0] + op })
+    return pick({ light: obj[1] + op, dark: obj[0] + op, lightColorful: obj[2] + op })
   }
 
   const colors = getColors(color)

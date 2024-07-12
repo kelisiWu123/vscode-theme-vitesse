@@ -51,6 +51,11 @@
         "path": "./themes/vitesse-black.json"
       },
       {
+        "label": "Vitesse Light Colorful",
+        "uiTheme": "vs",
+        "path": "./themes/vitesse-light-colorful.json"
+      },
+      {
         "label": "Vitesse Light Soft",
         "uiTheme": "vs",
         "path": "./themes/vitesse-light-soft.json"

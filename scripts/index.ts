@@ -15,6 +15,14 @@ fs.mkdir('./themes', { recursive: true })
       { spaces: 2 },
     ),
     fs.writeJSON(
+      './themes/vitesse-light-colorful.json',
+      getTheme({
+        color: 'lightColorful',
+        name: 'Vitesse Light Colorful',
+      }),
+      { spaces: 2 },
+    ),
+    fs.writeJSON(
       './themes/vitesse-dark.json',
       getTheme({
         color: 'dark',
@@ -58,6 +66,14 @@ fs.mkdir('./extra', { recursive: true })
       getXtermTheme({
         color: 'light',
         name: 'Vitesse Light',
+      }),
+      { spaces: 2 },
+    ),
+    fs.writeJSON(
+      './extra/xterm-vitesse-light-colorful.json',
+      getXtermTheme({
+        color: 'lightColorful',
+        name: 'Vitesse Light Colorful',
       }),
       { spaces: 2 },
     ),
